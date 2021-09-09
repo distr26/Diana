@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <windows.h>
+#include <math.h>
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	int n;
+
+	double P = 1.0;
+
+	do
+	{
+		system("cls");
+		printf("Введіть n (n>=0): ");
+		scanf_s("%d", &n);
+	} while (n<=0);
+
+	for (int k = 1; k <= n; k++)
+	{
+		P *= (3 * k + pow(-1, k * k - k + 1) * k) / (2 * k * k + 1);
+	}
+
+	printf("P = %0.20lf", P);
+
+	return 0;
+}
